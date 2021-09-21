@@ -21,3 +21,16 @@ func _on_GoLGodot_resized():
 	var min_size = min(size.x, size.y)
 	var scale = min_size / GOL_SIZE
 	viewport_container.rect_scale = Vector2(scale, scale)
+
+
+func _on_TextureRect_gui_input(event):
+	if event is InputEventMouseButton and event.pressed:
+		if event.button_index == BUTTON_LEFT:
+			var img = viewport.get_texture().get_data()
+			var tex = ImageTexture.new()
+			tex.create_from_image(img)
+			texture_rect.material.set_shader_param('gol', tex)
+		elif event.button_index == BUTTON_RIGHT:
+			texture_rect.material.set_shader_param(
+				'gol', viewport.get_texture()
+			);

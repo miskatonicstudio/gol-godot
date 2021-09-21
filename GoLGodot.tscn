@@ -60,3 +60,4 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="resized" from="." to="." method="_on_GoLGodot_resized"]
+[connection signal="gui_input" from="ViewportContainer/Viewport/TextureRect" to="." method="_on_TextureRect_gui_input"]
